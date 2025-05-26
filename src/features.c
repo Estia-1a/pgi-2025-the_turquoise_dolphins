@@ -1,6 +1,8 @@
 #include "features.h"
 #include "utils.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <estia-image.h>
 
 /**
  * @brief Here, you have to code features of the project.
