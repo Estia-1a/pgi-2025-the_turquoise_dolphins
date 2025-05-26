@@ -26,8 +26,12 @@ int dimension(const char *source_path, int *WIDTH, int *HEIGHT) {
         return 0;
     }
 
-    printf("Dimensions de l'image : %d, %d\n", *WIDTH, *HEIGHT);
+    printf("dimension de l'image : %d, %d\n", *WIDTH, *HEIGHT);
 
     free(data);
     return 1;
+}
+
+void first_pixel(char *source_path){
+
 }
