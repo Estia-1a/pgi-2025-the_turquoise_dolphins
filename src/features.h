@@ -4,7 +4,7 @@
 
 void helloWorld();
 
-int dimension(const char *filename, int *width, int *height);
+int dimension(const char *filename, int *WIDTH, int *HEIGHT);
 
 #endif
 
