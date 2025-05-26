@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "features.h"
 #include "utils.h"
 #include <stdlib.h>
