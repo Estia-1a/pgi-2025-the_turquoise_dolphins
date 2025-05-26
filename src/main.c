@@ -31,9 +31,15 @@ int main(int argc, char **argv) {
     /* helloworld() function is defined in feature.h and implemented in feature.c */
     helloWorld();
   }
-  /*
-   * TO COMPLETE
-   */
+ 
+  if ( strncmp( configuration.command, "dimension", 9 ) == 0 ) {
+    /* helloworld() function is defined in feature.h and implemented in feature.c */
+    const char *source_path = "./images/input/image.jpeg";
+    int WIDTH, HEIGHT; 
+    
+    dimension(source_path, &WIDTH, &HEIGHT);
+  }
+
   
   return 0;
 }
