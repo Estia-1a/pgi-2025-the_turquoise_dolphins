@@ -36,7 +36,7 @@ void first_pixel(const char *source_path){
     unsigned char *data = NULL; 
     int WIDTH, HEIGHT, channel_count; 
 
-    if (!read_image_data(source_path, &data, WIDTH, HEIGHT, &channel_count)) {
+    if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
         fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
         return 0;
     }
