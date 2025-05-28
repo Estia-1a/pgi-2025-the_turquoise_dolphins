@@ -79,12 +79,13 @@ void second_line(const char *source_path){
         return 0;
     }
 
-    unsigned char r = data[3*WIDTH];
-    unsigned char g = data[3*WIDTH+1];
-    unsigned char b = data[3*WIDTH+2];
+    int index = 3*WIDTH;
+    unsigned char r = data[index];
+    unsigned char g = data[index+1];
+    unsigned char b = data[index+2];
 
-    printf("first_pixel: %d, %d, %d\n", r, g, b);
+    printf("second_line: %d, %d, %d\n", r, g, b);
 
     free(data);
-    return 1; 
+    return 1;
 }
