@@ -16,20 +16,18 @@ void helloWorld() {
 
 }
 
-int dimension(const char *source_path, int *WIDTH, int *HEIGHT) {
+void dimension(const char *source_path, int *WIDTH, int *HEIGHT) {
     unsigned char *data = NULL;
     int channel_count;
     
 
     if (!read_image_data(source_path, &data, WIDTH, HEIGHT, &channel_count)) {
         fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
-        return 0;
     }
 
     printf("dimension de l'image : %d, %d\n", *WIDTH, *HEIGHT);
 
     free(data);
-    return 1;
 }
 
 void first_pixel(const char *source_path){
@@ -38,7 +36,6 @@ void first_pixel(const char *source_path){
 
     if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
         fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
-        return 0;
     }
 
     unsigned char r = data[0];
@@ -48,7 +45,6 @@ void first_pixel(const char *source_path){
     printf("first_pixel: %d, %d, %d\n", r, g, b);
 
     free(data);
-    return 1; 
 }
 
 void tenth_pixel(const char *source_path){
@@ -57,7 +53,6 @@ void tenth_pixel(const char *source_path){
 
     if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
         fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
-        return 0;
     }
 
     unsigned char r = data[27];
@@ -67,7 +62,6 @@ void tenth_pixel(const char *source_path){
     printf("first_pixel: %d, %d, %d\n", r, g, b);
 
     free(data);
-    return 1; 
 }
 
 void second_line(const char *source_path){
@@ -76,9 +70,8 @@ void second_line(const char *source_path){
 
     if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
         fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
-        return 0;
     }
-
+    
     unsigned char r = data[3*WIDTH];
     unsigned char g = data[3*WIDTH+1];
     unsigned char b = data[3*WIDTH+2];
@@ -86,5 +79,4 @@ void second_line(const char *source_path){
     printf("first_pixel: %d, %d, %d\n", r, g, b);
 
     free(data);
-    return 1; 
 }
