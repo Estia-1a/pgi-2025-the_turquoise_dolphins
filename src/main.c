@@ -49,11 +49,13 @@ int main(int argc, char **argv) {
     const char *source_path = "./images/input/image.jpeg";    
     tenth_pixel(source_path);
   }
-  return 0;
+
 
   if ( strncmp( configuration.command, "second_line", 11 ) == 0 ) {
-    const char *source_path = "./images/input/image.jpeg";    
+    const char *source_path = "./images/input/image.jpeg"; 
     second_line(source_path);
+    
   }
   return 0;
+
 }
