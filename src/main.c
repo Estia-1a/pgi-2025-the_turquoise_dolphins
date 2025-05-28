@@ -56,6 +56,17 @@ int main(int argc, char **argv) {
     second_line(source_path);
     
   }
+
+  if ( strncmp( configuration.command, "print_pixel", 11 ) == 0 ) {
+    if (argc < 5) {
+      fprintf(stderr, "Usage: %s -f images/input/image.jpeg> -c print_pixel <x> <y>\n", argv[0]);
+    }
+    const char *source_path = argv[2]; // -f chemin de l'image
+    int x = atoi(argv[4]);             // x
+    int y = atoi(argv[5]);             // y
+
+    print_pixel(source_path,x,y);
+  } 
   return 0;
 
 }
