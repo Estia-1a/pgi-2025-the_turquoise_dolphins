@@ -32,7 +32,7 @@ int dimension(const char *source_path, int *WIDTH, int *HEIGHT) {
     return 1;
 }
 
-void first_pixel(char *source_path){
+void first_pixel(const char *source_path){
     unsigned char *data = NULL; 
     int WIDTH, HEIGHT, channel_count; 
 
