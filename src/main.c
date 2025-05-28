@@ -40,6 +40,12 @@ int main(int argc, char **argv) {
     dimension(source_path, &WIDTH, &HEIGHT);
   }
 
+  if ( strncmp( configuration.command, "first_pixel", 11 ) == 0 ) {
+    /* dimension() function is defined in feature.h and implemented in feature.c */
+    const char *source_path = "./images/input/image.jpeg";    
+    first_pixel(source_path);
+  }
+
   
   return 0;
 }
