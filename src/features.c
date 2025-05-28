@@ -76,7 +76,7 @@ void second_line(const char *source_path){
     unsigned char g = data[3*WIDTH+1];
     unsigned char b = data[3*WIDTH+2];
 
-    printf("first_pixel: %d, %d, %d\n", r, g, b);
+    printf("second_line: %d, %d, %d\n", r, g, b);
 
     free(data);
 }
