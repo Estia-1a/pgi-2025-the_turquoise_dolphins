@@ -50,3 +50,22 @@ void first_pixel(const char *source_path){
     free(data);
     return 1; 
 }
+
+void tenth_pixel(const char *source_path){
+    unsigned char *data = NULL; 
+    int WIDTH, HEIGHT, channel_count; 
+
+    if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
+        fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
+        return 0;
+    }
+
+    unsigned char r = data[27];
+    unsigned char g = data[28];
+    unsigned char b = data[29];
+
+    printf("first_pixel: %d, %d, %d\n", r, g, b);
+
+    free(data);
+    return 1; 
+}
