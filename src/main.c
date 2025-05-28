@@ -41,11 +41,13 @@ int main(int argc, char **argv) {
   }
 
   if ( strncmp( configuration.command, "first_pixel", 11 ) == 0 ) {
-    /* dimension() function is defined in feature.h and implemented in feature.c */
     const char *source_path = "./images/input/image.jpeg";    
     first_pixel(source_path);
   }
 
-  
+  if ( strncmp( configuration.command, "tenth_pixel", 11 ) == 0 ) {
+    const char *source_path = "./images/input/image.jpeg";    
+    tenth_pixel(source_path);
+  }
   return 0;
 }
