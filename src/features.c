@@ -163,7 +163,6 @@ void min_component(const char *source_path, char *component){
             }
     printf("min_component %s (%d,%d): %d\n", component, min_x, min_y, min_component_valeur);
         }
+    free (data);
     }
-    
-
 }
