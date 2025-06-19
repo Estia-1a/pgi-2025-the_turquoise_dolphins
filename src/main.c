@@ -75,4 +75,11 @@ int main(int argc, char **argv) {
   }
   return 0;
 
+
+  if ( strncmp( configuration.command, "max_component", 13 ) == 0 ) {
+    const char *source_path = "./images/input/image.jpeg";
+    char component;
+    min_component(source_path,component);
+  }
+  return 0;
 }
