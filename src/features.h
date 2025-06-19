@@ -20,5 +20,9 @@ void max_component(const char *source_path, const char *component);
 
 void rotate_cw(char *source_path);
 
+void rogner_bas(char* source_path)
+
+void rogner_haut(char* source_path)
+
 #endif
 

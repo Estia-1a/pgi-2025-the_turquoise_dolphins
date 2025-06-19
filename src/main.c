@@ -72,6 +72,16 @@ int main(int argc, char **argv) {
     const char *source_path = "./images/input/image.jpeg";
     rotate_cw(source_path);
   }
+
+  if ( strncmp( configuration.command, "rogner_bas", 10 ) == 0 ) {
+    const char *source_path = "./images/input/image.jpeg";
+    rogner_bas(source_path);
+  }
+
+  if ( strncmp( configuration.command, "rogner_haut", 11 ) == 0 ) {
+    const char *source_path = "./images/input/image.jpeg";
+    rogner_haut(source_path);
+  }
   return 0;
 
 }
