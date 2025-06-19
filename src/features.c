@@ -71,7 +71,7 @@ void second_line(const char *source_path){
     if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
         fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
     }
-
+    
     int index = 3*WIDTH;
     unsigned char r = data[index];
     unsigned char g = data[index+1];
