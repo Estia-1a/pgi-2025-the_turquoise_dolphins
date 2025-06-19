@@ -169,4 +169,141 @@ void min_component(const char *source_path, const char *component){
 
     free(data);
 }   
+void color_red(char* source_path){
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    int y;
+    int x;
+    for (y = 0; y < height; y++){
+        for (x=0; x < width; x++){
+            data[y*width*3 + x*3+1] = data[y*width*3 + x*3+0]; // Vert = Rouge
+            data[y*width*3 + x*3+2] = data[y*width*3 + x*3+0]; // Bleu = Rouge
+        }
+    }
+   
+ write_image_data("image_out.bmp", data, width, height);
+}
+void color_blue(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            data[y * width * 3 + x * 3 + 0] = data[y * width * 3 + x * 3 + 2]; // Rouge = Bleu
+            data[y * width * 3 + x * 3 + 1] = data[y * width * 3 + x * 3 + 2]; // Vert = Bleu
+        }
+    }
+    
+    write_image_data("image_out.bmp", data, width, height);
+}
+void color_green(char* source_path){
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    int y;
+    int x;
+    for (y = 0; y < height; y++){
+        for (x=0; x < width; x++){
+            data[y*width*3 + x*3+0] = data[y*width*3 + x*3+1]; // Rouge = Vert
+            data[y*width*3 + x*3+2] = data[y*width*3 + x*3+1]; // Bleu = Vert
+        }
+    }
+    write_image_data("image_out.bmp", data, width, height);
+}
+void color_gray(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            unsigned char red = data[y * width * 3 + x * 3];
+            unsigned char green = data[y * width * 3 + x * 3 + 1];
+            unsigned char blue = data[y * width * 3 + x * 3 + 2];
+            unsigned char gray = (red + green + blue) / 3;  // Moyenne simple
+            
+            data[y * width * 3 + x * 3] = gray;
+            data[y * width * 3 + x * 3 + 1] = gray;
+            data[y * width * 3 + x * 3 + 2] = gray;
+        }
+    }
+    write_image_data("image_out.bmp", data, width, height);
+}
+void color_invert(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
 
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            unsigned char red = data[y * width * 3 + x * 3];
+            unsigned char green = data[y * width * 3 + x * 3 + 1];
+            unsigned char blue = data[y * width * 3 + x * 3 + 2];
+        
+            data[y * width * 3 + x * 3] = 255 - red;       // Invert red component
+            data[y * width * 3 + x * 3 + 1] = 255 - green; // Invert green component
+            data[y * width * 3 + x * 3 + 2] = 255 - blue;  // Invert blue component
+        }  // <- Accolade fermante manquante pour la boucle for
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+    free(data); 
+}
+void color_gray_luminance(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            unsigned char red = data[y * width * 3 + x * 3];
+            unsigned char green = data[y * width * 3 + x * 3 + 1];
+            unsigned char blue = data[y * width * 3 + x * 3 + 2];
+            unsigned char gray = (unsigned char)(0.21 * red + 0.72 * green + 0.07 * blue);
+            
+            data[y * width * 3 + x * 3] = gray;
+            data[y * width * 3 + x * 3 + 1] = gray;
+            data[y * width * 3 + x * 3 + 2] = gray;
+        }
+    }
+    write_image_data("image_out.bmp", data, width, height);
+}
+void color_desaturate(char *source_path) {
+    int width, height, channel_count;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &channel_count);
+    
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            unsigned char red = data[y * width * 3 + x * 3];
+            unsigned char green = data[y * width * 3 + x * 3 + 1];
+            unsigned char blue = data[y * width * 3 + x * 3 + 2];
+            
+            // Trouver min et max
+            unsigned char min_value = red;
+            if (green < min_value) min_value = green;
+            if (blue < min_value) min_value = blue;
+            
+            unsigned char max_value = red;
+            if (green > max_value) max_value = green;
+            if (blue > max_value) max_value = blue;
+            
+            // Formule de désaturation : (min + max) / 2
+            unsigned char new_value = (min_value + max_value) / 2;
+            
+            // Appliquer la même valeur aux 3 canaux
+            data[y * width * 3 + x * 3] = new_value;
+            data[y * width * 3 + x * 3 + 1] = new_value;
+            data[y * width * 3 + x * 3 + 2] = new_value;
+        }
+    }
+    
+    write_image_data("image_out.bmp", data, width, height);
+}
