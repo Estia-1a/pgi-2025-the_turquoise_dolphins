@@ -121,8 +121,11 @@ void max_component(const char *source_path, char *component) {
                 }
             }
         }
+    
+        printf("max_component %s (%d, %d): %d\n", component, max_x, max_y, max_component_valeur);
     }
 }
+
 
 void min_component(const char *source_path, char *component){
     unsigned char *data = NULL;
