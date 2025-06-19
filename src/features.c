@@ -84,51 +84,6 @@ void second_line(const char *source_path){
     free(data);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void max_component(const char *source_path, char *component) {
     int width, height, channel_count;
     unsigned char *data;
