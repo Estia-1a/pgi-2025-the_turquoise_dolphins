@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <estia-image.h>
+#include <string.h>
+
 
 /**
  * @brief Here, you have to code features of the project.
@@ -145,15 +147,17 @@ void max_component(const char *source_path, char *component) {
                 int B = data[pixel_num + 2];
                 int component_val;
 
-                if (strcmp(component == 'R')) {
+                if (strcmp(component, "R") == 0){
                     component_val = R;
-                } else if (strcmp(component == 'G')) {
+                }
+                else if(strcmp(component, "G") == 0){
                     component_val = G;
-                } else if (strcmp(component == 'B')) {
+                }
+                else if (strcmp(component, "B") == 0){
                     component_val = B;
-                } else {
-                    printf("Option de composante invalide.\n");
-                    return;
+                }
+                else{
+                    printf("Erreur de lecture de la composante.\n");
                 }
                 if (component_val > max_component_valeur) {
                     max_component_valeur = component_val;
@@ -163,4 +167,48 @@ void max_component(const char *source_path, char *component) {
             }
         }
     }
+}
+
+void min_component(const char *source_path, char *component){
+    unsigned char *data = NULL;
+    int WIDTH, HEIGHT, channel_count, x, y, component_val;
+
+    if (!read_image_data(source_path, &data, &WIDTH, &HEIGHT, &channel_count)) {
+        fprintf(stderr, "Erreur de lecture de l'image : %s\n", source_path);
+        return;
+    }
+    
+    int min_component_valeur = 765;
+    int min_x = 0;
+    int min_y = 0;
+
+    for (y=0; y<HEIGHT; y++) {
+        for (x=0; x<WIDTH; x++){
+            int pixel_num = (y*WIDTH + x)*channel_count;
+            int R = data[pixel_num];
+            int G = data[pixel_num + 1];
+            int B = data[pixel_num + 2];
+
+            if (strcmp(component, "R") == 0){
+                component_val = R;
+            }
+            else if(strcmp(component, "G") == 0){
+                component_val = G;
+            }
+            else if (strcmp(component, "B") == 0){
+                component_val = B;
+            }
+            else{
+                printf("Erreur de lecture de la composante.\n");
+            }
+            if (component_val<min_component_valeur){
+                min_component_valeur = component_val;
+                min_x = x;
+                min_y = y;
+            }
+    printf("min_component %s (%d,%d): %d\n", component, min_x, min_y, min_component_valeur);
+        }
+    }
+    
+
 }

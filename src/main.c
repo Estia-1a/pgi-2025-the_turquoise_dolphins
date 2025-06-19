@@ -67,6 +67,12 @@ int main(int argc, char **argv) {
 
     print_pixel(source_path,x,y);
   } 
+  
+  if ( strncmp( configuration.command, "min_component", 13 ) == 0 ) {
+    const char *source_path = "./images/input/image.jpeg";
+    char component;
+    min_component(source_path,component);
+  }
   return 0;
 
 }
