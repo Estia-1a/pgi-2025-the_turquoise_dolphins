@@ -45,21 +45,21 @@ int main(int argc, char **argv) {
             fprintf(stderr, "Usage: %s -f images/input/image.jpeg -c print_pixel <x> <y>\n", argv[0]);
             return 1;
         }
-        const char *source_path = argv[2]; // -f chemin de l'image
-        int x = atoi(argv[4]);             // x
-        int y = atoi(argv[5]);             // y
+        const char *source_path = argv[2]; 
+        int x = atoi(argv[4]);             
+        int y = atoi(argv[5]);           
         print_pixel(source_path, x, y);
     }
 
     if (strncmp(configuration.command, "min_component", 13) == 0) {
         const char *source_path = "./images/input/image.jpeg";
-        // Pour min_component, passe un pointeur vers chaîne
-        min_component(source_path, "R");  // Exemple avec "R" ou "G" ou "B"
+        
+        min_component(source_path, "R");  
     }
 
     if (strncmp(configuration.command, "max_component", 13) == 0) {
         const char *source_path = "./images/input/image.jpeg";
-        // Appel avec une composante, exemple "R"
+       
         max_component(source_path, "R");
     }
 

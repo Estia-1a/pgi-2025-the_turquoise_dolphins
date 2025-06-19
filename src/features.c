@@ -98,7 +98,7 @@ void max_component(const char *source_path, const char *component) {
     int max_val = -1;
     int max_x = 0, max_y = 0;
 
-    // Indice composante dans le pixel (R=0, G=1, B=2)
+  
     int comp_index = -1;
     if (strcmp(component, "R") == 0) comp_index = 0;
     else if (strcmp(component, "G") == 0) comp_index = 1;
