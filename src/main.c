@@ -62,6 +62,40 @@ int main(int argc, char **argv) {
        
         max_component(source_path, "R");
     }
+        if (strncmp(configuration.command, "color_red", 9) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_red(source_path);
+    }
+
+    if (strncmp(configuration.command, "color_green", 11) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_green(source_path);
+    }
+
+    if (strncmp(configuration.command, "color_blue", 10) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_blue(source_path);
+    }
+
+    if (strncmp(configuration.command, "color_gray", 10) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_gray(source_path);
+    }
+
+    if (strncmp(configuration.command, "color_gray_luminance", 20) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_gray_luminance(source_path);
+    }
+
+    if (strncmp(configuration.command, "color_invert", 12) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_invert(source_path);
+    }
+
+    if (strncmp(configuration.command, "color_desaturate", 16) == 0) {
+        const char *source_path = "./images/input/image.jpeg";
+        color_desaturate(source_path);
+    }
 
     return 0;
 }
