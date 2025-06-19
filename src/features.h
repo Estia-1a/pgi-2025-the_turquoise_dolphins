@@ -18,5 +18,7 @@ void min_component(const char *source_path, char *component);
 
 void max_component(const char *source_path, char *component);
 
+void rotate_cw(char *source_path);
+
 #endif
 

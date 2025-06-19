@@ -73,7 +73,6 @@ int main(int argc, char **argv) {
     char component;
     min_component(source_path,component);
   }
-  return 0;
 
 
   if ( strncmp( configuration.command, "max_component", 13 ) == 0 ) {
@@ -81,5 +80,11 @@ int main(int argc, char **argv) {
     char component;
     min_component(source_path,component);
   }
+ 
+  if ( strncmp( configuration.command, "rotate_cw", 9 ) == 0 ) {
+    const char *source_path = "./images/input/image.jpeg";
+    rotate_cw(source_path);
+  }
   return 0;
+
 }
