@@ -81,3 +81,86 @@ void second_line(const char *source_path){
 
     free(data);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void max_component(const char *source_path, char *component) {
+    int width, height, channel_count;
+    unsigned char *data;
+
+    if (read_image_data(source_path, &data, &width, &height, &channel_count)) {
+        int max_component_valeur = 0;
+        int max_x = 0;
+        int max_y = 0;
+
+        int y, x;
+        for (y = 0; y < height; y++) {
+            for (x = 0; x < width; x++) {
+                int pixel_num = (y * width + x) * channel_count;
+                int R = data[pixel_num];
+                int G = data[pixel_num + 1];
+                int B = data[pixel_num + 2];
+                int component_val;
+
+                if (strcmp(component == 'R')) {
+                    component_val = R;
+                } else if (strcmp(component == 'G')) {
+                    component_val = G;
+                } else if (strcmp(component == 'B')) {
+                    component_val = B;
+                } else {
+                    printf("Option de composante invalide.\n");
+                    return;
+                }
+                if (component_val > max_component_valeur) {
+                    max_component_valeur = component_val;
+                    max_x = x;
+                    max_y = y;
+                }
+            }
+        }
+    }
+}

@@ -14,5 +14,8 @@ void second_line(const char *source_path);
 
 void print_pixel(const char *source_path, int x, int y);
 
+
+
+void max_component(const char *source_path, char *component);
 #endif
 
