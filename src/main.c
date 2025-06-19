@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
     char component;
     min_component(source_path,component);
   }
-  return 0;
+  
 
 
   if ( strncmp( configuration.command, "max_component", 13 ) == 0 ) {
