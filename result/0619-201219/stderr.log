@@ -1,0 +1,22 @@
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c: In function ‘main’:
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:67:9: warning: implicit declaration of function ‘color_red’ [-Wimplicit-function-declaration]
+   67 |         color_red(source_path);
+      |         ^~~~~~~~~
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:72:9: warning: implicit declaration of function ‘color_green’ [-Wimplicit-function-declaration]
+   72 |         color_green(source_path);
+      |         ^~~~~~~~~~~
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:77:9: warning: implicit declaration of function ‘color_blue’ [-Wimplicit-function-declaration]
+   77 |         color_blue(source_path);
+      |         ^~~~~~~~~~
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:82:9: warning: implicit declaration of function ‘color_gray’ [-Wimplicit-function-declaration]
+   82 |         color_gray(source_path);
+      |         ^~~~~~~~~~
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:87:9: warning: implicit declaration of function ‘color_gray_luminance’ [-Wimplicit-function-declaration]
+   87 |         color_gray_luminance(source_path);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:92:9: warning: implicit declaration of function ‘color_invert’ [-Wimplicit-function-declaration]
+   92 |         color_invert(source_path);
+      |         ^~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_turquoise_dolphins/pgi-2025-the_turquoise_dolphins/src/main.c:97:9: warning: implicit declaration of function ‘color_desaturate’ [-Wimplicit-function-declaration]
+   97 |         color_desaturate(source_path);
+      |         ^~~~~~~~~~~~~~~~
